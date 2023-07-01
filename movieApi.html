@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-3 mb-4">
+            <h2>Example of Jumbotron</h2>
+            <div class="mt-4 p-5 bg-primary text-white rounded">
+                <h1>Jumbotron Example</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row" id="wrapper">
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="row" id="cast_wrapper">
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script>
+        fetch('https://imdb-api.com/API/MostPopularTVs/k_9em3xlv9').then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(data => {
+            let wrapperElement = document.getElementById('wrapper')
+            for (let i = 0; i < 10; i++) {
+                let container = document.createElement('div')
+                container.className = ' movie col-lg-3 col-md-4 col-sm-6 m-1'
+                container.setAttribute('id', data.items[i].id)
+                container.addEventListener("click", casts);
+                let card = document.createElement('div')
+
+                card.className = 'card'
+                card.setAttribute('id', 'id' + i)
+                card.style = 'width: 18rem'
+                card.style = 'height:25rem'
+                let img = document.createElement('img')
+                img.className = 'card-img-top'
+                img.setAttribute('id', data.items[i].id)
+                img.style = 'height:22rem'
+                img.src = data.items[i].image
+                console.log(data);
+                card.appendChild(img)
+                let cardBody = document.createElement('div')
+                cardBody.className = 'card-body'
+
+                let cardTitle = document.createElement('h5')
+                cardTitle.className = 'card-title'
+                cardTitle.innerText = data.items[i].title
+
+                cardBody.append(cardTitle)
+
+                card.appendChild(cardBody)
+
+
+
+
+                container.append(card)
+                wrapperElement.appendChild(container)
+            }
+
+
+        }).catch(error => {
+            console.error('Error fetching data:' + error);
+        });
+
+
+
+        function casts(e) {
+
+            let movie_id = e.target.getAttribute('id')
+            console.log(movie_id)
+            let cast_wrapper = document.getElementById('cast_wrapper')
+
+
+            let cast_card = document.createElement('div')
+            cast_card.className = 'col-lg-6'
+
+
+
+            let cast_img = document.createElement('img')
+            cast_img.className = 'rounded-circle'
+            cast_img.style = 'width:100px'
+
+            fetch('https://imdb-api.com/API/FullCast/k_9em3xlv9/' + movie_id)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    for (let i = 0; i < data.actors.length; i++) {
+
+
+                        let cast_card = document.createElement('div')
+                        cast_card.className = 'col-lg-6 mt-1'
+
+                        let cast_img = document.createElement('img')
+                        cast_img.className = 'rounded-circle'
+                        cast_img.style = 'width:100px'
+                        cast_img.src = data.actors[i].image
+
+                        cast_card.append(cast_img)
+
+
+
+                        cast_wrapper.append(cast_card)
+
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+
+
+        }
+    </script>
+</body>
+
+</html>

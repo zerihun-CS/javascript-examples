@@ -1,0 +1,50 @@
+<!-- Include Highcharts library -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<div id="container"></div>
+
+<script>
+    // Define initial chart options
+
+    // Create the initial chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        series: [{
+            name: 'Fruit',
+            data: [
+                ['Apples', 29],
+                ['Bananas', 42],
+                ['Oranges', 27]
+            ]
+        }]
+    });
+
+
+
+    // Function to update chart data with new static data
+    function updateChartData() {
+
+        var chart = Highcharts.charts[0];
+
+        var newData = [
+            ['Apples', Math.random() * 5],
+            ['Bananas', Math.random() * 2],
+            ['Oranges', Math.random() * 3]
+        ];
+
+
+        chart.series[0].setData(newData);
+
+
+
+    }
+
+    // Call function to update chart data every 5 seconds
+    setInterval(updateChartData, 11565000);
+</script>

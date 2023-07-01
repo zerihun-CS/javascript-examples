@@ -1,0 +1,41 @@
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Create a canvas element for the chart -->
+<canvas id="myChart"></canvas>
+
+<script>
+    // Retrieve chart element and context
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Define initial chart data
+    const initialData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My Dataset',
+            data: [0, 10, 5, 2, 20, 30, 45],
+            borderColor: 'red',
+            fill: false
+        }]
+    };
+
+    // Create chart instance with initial data
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: initialData
+    });
+
+    // Function to update chart data from API
+    function updateChartData() {
+        fetch('https://restcountries.com/v2/all')
+            .then(response => response.json())
+            .then(data => {
+                // Update chart data with new data from API
+                myChart.data.datasets[0].data = [0, 0, 0, 2, 20, 3, 100];
+                myChart.update();
+            });
+    }
+
+    // Call function to update chart data every 5 seconds
+    setInterval(updateChartData, 5000);
+</script>

@@ -1,0 +1,47 @@
+<!-- Include Highcharts library -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<div id="myChart"></div>
+
+<script>
+    // Define initial chart options
+    const initialOptions = {
+        title: {
+            text: 'My Chart'
+        },
+        xAxis: {
+            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+        },
+        yAxis: {
+            title: {
+                text: 'Value'
+            }
+        },
+        series: [{
+            name: 'My Series',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    };
+
+    // Create chart instance with initial options
+    const myChart = Highcharts.chart('myChart', initialOptions);
+
+    // Function to update chart data with new static data
+    function updateChartData() {
+
+        // Generate new data array
+        const newData = [Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50];
+
+        // Update chart with new data
+        myChart.update({
+            series: [{
+                name: 'My Series',
+                data: newData
+            }]
+        });
+    }
+
+    // Call function to update chart data every 5 seconds
+    setInterval(updateChartData, 5000);
+</script>

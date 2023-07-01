@@ -1,0 +1,23 @@
+<script>
+    fetch('https://imdb-api.com/en/API/BoxOffice/k_b51k9neb')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            var count = Object.keys(data.items).length;
+            for (let i = 0; i < count; i++) {
+
+                console.log(data.items[i])
+            }
+
+
+        })
+
+
+    .catch(error => {
+        console.error('error fetching')
+    })
+</script>

@@ -1,0 +1,16 @@
+<script>
+    //    https: //strangerthings-quotes.vercel.app/api/quotes/21
+
+
+    const url = 'https://imdb-api.com/API/MostPopularTVs/k_638i26ft' // countries api
+    fetch(url)
+        .then(response => response.json()) // accessing the API data as JSON
+        .then(data => {
+            // getting the data
+            data.forEach(quote => {
+                console.log(quote);
+            })
+
+        })
+        .catch(error => console.error(error)) // handling error if something wrong happens//
+</script>

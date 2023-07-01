@@ -1,0 +1,57 @@
+<!-- Include Highcharts library -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<div id="container"></div>
+
+<script>
+    // Define initial chart options
+
+
+    // Create the initial chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit Eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [3, 2, 1]
+        }, {
+            name: 'John',
+            data: [4, 3, 2]
+        }, {
+            name: 'alex',
+            data: [4, 5, 2]
+        }]
+    });
+
+    // Update the chart with new data
+
+
+    function updateChartData() {
+
+
+        // Generate new data array
+        const newData = [Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50];
+
+        var chart = Highcharts.charts[0];
+        chart.series[0].([Math.random() * 5, 4, Math.random() * 2]);
+        chart.series[1].setData([2, Math.random() * 2, Math.random() * 3]);
+        chart.series[2].setData([2, Math.random() * 2, Math.random() * 3]);
+
+    }
+
+    // Call function to update chart data every 5 seconds
+    setInterval(updateChartData, 5000);
+</script>

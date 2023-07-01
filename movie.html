@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: -moz-none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        
+        img {
+            -webkit-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        img {
+            pointer-events: none;
+        }
+        
+        .movie_card {
+            padding: 0 !important;
+            width: 13rem;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        
+        .movie_card img {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 20rem;
+        }
+        
+        .img-cover {
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                    <form id="myForm" class="d-flex" role="search">
+                        <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <!-- Button trigger modal -->
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row" id="productsRow">
+
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="row" id="actorsRow">
+                    <div class="col-lg-4 col-md-6 col-md-3 col-sm-6 ">
+
+                        <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                            <img src="https://m.media-amazon.com/images/M/MV5BZjcxNTI5ZTQtZmU3Mi00ODNlLTk2ZWQtZTU5NzQ3MTMyZmI0XkEyXkFqcGdeQXVyMzQwMTY2Nzk@._V1_Ratio0.6757_AL_.jpg" class="card-img-top img-cover" alt="Raeesh">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-md-3 col-sm-6 ">
+
+                        <div class="ratio ratio-1x1 rounded-circle overflow-hidden">
+                            <img src="https://m.media-amazon.com/images/M/MV5BZjcxNTI5ZTQtZmU3Mi00ODNlLTk2ZWQtZTU5NzQ3MTMyZmI0XkEyXkFqcGdeQXVyMzQwMTY2Nzk@._V1_Ratio0.6757_AL_.jpg" class="card-img-top img-cover" alt="Raeesh">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+
+
+                var search = document.getElementById('search').value;
+
+                fetch('https://imdb-api.com/en/API/SearchMovie/k_9em3xlv9/' + search)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        document.getElementById('productsRow').innerHTML = "";
+                        data.results.forEach(movies => {
+
+
+                            const productsRow = document.getElementById('productsRow');
+
+                            // Create a new card element with the col-md-4 class
+                            const newCard = document.createElement('div');
+                            newCard.className = 'col-xxl-3 col-xl-4 col-md-4 col-sm-6';
+
+                            const insideDiv = document.createElement('div');
+                            insideDiv.className = 'card movie_card';
+                            insideDiv.setAttribute('id', movies.id);
+                            insideDiv.addEventListener('click', casts)
+
+
+
+                            const newImage = document.createElement('img');
+                            newImage.src = movies.image;
+                            newImage.className = 'card-img-top';
+
+                            // Create the card content
+                            insideDiv.appendChild(newImage);
+
+                            newCard.appendChild(insideDiv);
+
+                            productsRow.appendChild(newCard);
+
+
+                        })
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+
+
+
+
+                event.preventDefault();
+
+
+            }
+
+        );
+
+
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // your code here
+
+            fetch('https://imdb-api.com/API/BoxOffice/k_9em3xlv9')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+
+                    data.items.forEach(movies => {
+
+
+                        const productsRow = document.getElementById('productsRow');
+
+                        // Create a new card element with the col-md-4 class
+                        const newCard = document.createElement('div');
+                        newCard.className = 'col-xxl-3 col-xl-4 col-md-4 col-sm-6';
+
+                        const insideDiv = document.createElement('div');
+                        insideDiv.className = 'card movie_card';
+                        insideDiv.setAttribute('id', movies.id);
+                        insideDiv.addEventListener('click', casts)
+                        const newImage = document.createElement('img');
+                        newImage.src = movies.image;
+                        newImage.className = 'card-img-top';
+
+                        // Create the card content
+                        insideDiv.appendChild(newImage);
+
+                        newCard.appendChild(insideDiv);
+
+                        productsRow.appendChild(newCard);
+
+
+                    })
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+
+
+
+
+        });
+
+        async function casts(e) {
+
+
+
+
+            try {
+                const response = await fetch('https://imdb-api.com/API/FullCast/k_9em3xlv9/' + e.target.id);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                document.getElementById('actorsRow').innerHTML = "";
+                const productsRow = document.getElementById('actorsRow');
+                await data.actors.forEach(actor => {
+
+                    const newCard = document.createElement('div');
+                    newCard.className = 'col-lg-4 col-md-6 col-md-3 col-sm-6 mt-1';
+
+
+                    const insideDiv = document.createElement('div');
+                    insideDiv.className = 'ratio ratio-1x1 rounded-circle overflow-hidden';
+
+
+                    const newImage = document.createElement('img');
+                    newImage.src = actor.image;
+                    newImage.className = 'card-img-top img-cover';
+
+                    // Create the card content
+                    insideDiv.appendChild(newImage);
+
+                    newCard.appendChild(insideDiv);
+
+                    productsRow.appendChild(newCard);
+
+                })
+
+
+            } catch (error) {
+                console.error('Error fetching data:' + error);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

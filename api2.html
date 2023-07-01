@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Quotes</title>
+</head>
+
+<body>
+    <h1>Random Quotes</h1>
+    <div id="quotes"></div>
+    <button onclick="getQuotes()">Get Quotes</button>
+
+    <script>
+        function getQuotes() {
+            fetch('https://type.fit/api/quotes')
+                .then(response => response.json())
+                .then(data => {
+                    const quotes = [];
+                    for (let i = 0; i < 5; i++) {
+                        const index = Math.floor(Math.random() * data.length);
+                        const quote = data[index];
+                        quotes.push('"' + quote.text + '" - ' + quote.author);
+                    }
+                    document.getElementById('quotes').innerHTML = '<ul><li>' + quotes.join('</li><li>') + '</li></ul>';
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+
+</html>

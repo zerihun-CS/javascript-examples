@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="display">
+
+
+
+    </div>
+
+    <script>
+        fetch('https://type.fit/api/quotes')
+            .then(response => {
+                return response.json();
+
+            })
+            .then(data => {
+
+                const display = document.getElementById('display')
+                const list = document.createElement('ul');
+                data.forEach(quotes => {
+
+                    const data = document.createElement('li');
+
+                    data.innerText = quotes.text
+
+
+
+
+                    list.appendChild(data)
+
+
+
+
+                })
+
+                display.append(list)
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+
+</html>
+
+</html>
